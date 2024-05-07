@@ -6,3 +6,5 @@ import "CoreLibs/timer"
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
+function playdate.update()
+end
