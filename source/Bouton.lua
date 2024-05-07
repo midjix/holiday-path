@@ -6,7 +6,7 @@ import "CoreLibs/timer"
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
-class('Bouton').extends(gfx.sprites)
+class('Bouton').extends(gfx.sprite)
 
 function Bouton:init(x, y, imgNormal, imgSelect, imgPress)
     Bouton.super.init(self)
@@ -18,5 +18,10 @@ function Bouton:init(x, y, imgNormal, imgSelect, imgPress)
 end
 
 function Bouton:update(state)
-    self:setImage(self.imgNormal)
+    if state == 1 then
+        self:setImage(self.imgSelect)
+    else
+        self:setImage(self.imgPress)
+    end
+    
 end

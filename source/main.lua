@@ -3,16 +3,24 @@ import "CoreLibs/graphics"
 import "CoreLibs/object"
 import "CoreLibs/sprites"
 import "CoreLibs/timer"
+import "Bouton"
+import "images/normal"
+import "images/press"
+import "images/select"
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
-local cercleRayon = 10
+
 
 playdate.display.setRefreshRate(50) -- Sets framerate to 50 fps
 
 function playdate.update() -- se lance a chaque frame
-	
-	cercleRayon += 1
-	gfx.fillCircleAtPoint(200, 120, cercleRayon)
+	local bontonTest = Bouton(200, 120, "images/normal", "images/press", "images/select")
+	if pd.buttonIsPressed(pd.kButtonA) then
+		bontonTest:update(1)	
+	end
+	if pd.buttonIsPressed(pd.kButtonB) then
+		bontonTest:update(2)		
+	end
 	playdate.drawFPS(0,0)
 end
