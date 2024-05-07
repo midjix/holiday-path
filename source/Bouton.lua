@@ -18,5 +18,5 @@ function Bouton:init(x, y, imgNormal, imgSelect, imgPress)
 end
 
 function Bouton:update(state)
-    
+    self:setImage(self.imgNormal)
 end
