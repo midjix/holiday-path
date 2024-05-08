@@ -1,3 +1,4 @@
+-- ce menu ne peut avoir que 9 boutons par ligne !!!
 import "CoreLibs/graphics"
 import "CoreLibs/object"
 import "CoreLibs/sprites"
