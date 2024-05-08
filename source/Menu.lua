@@ -23,7 +23,7 @@ function Menu:init()
 	self.boutons[2*10 + 2] = Bouton(266, 180, "images/normal", "images/select", "images/press") -- Bonton règle
 	self.boutons[2*10 + 2].etat = 0
 
-	self.boutonSelect = {2, 1} -- Enregistre les indices du bouton selectionné 
+	self.boutonSelect = {1, 1} -- Enregistre les indices du bouton selectionné 
 	
     self:add()
 end
@@ -58,19 +58,14 @@ function Menu:selection()
 			self.boutonSelect[1] += 1 
 		end
 	end
-	
+	print(self.boutonSelect[1].." "..self.boutonSelect[2])
 	self.boutons[self.boutonSelect[1]*10 + self.boutonSelect[2]].etat = 1 -- change l'etat du nouveau boutons selectionné à Select
 end
 
 function Menu:presserBouton()
-    if self.boutons[1*10 + 1].etat == 1 and pd.buttonIsPressed(pd.kButtonA) then
-        self.boutons[1*10 + 1].etat = 2
-	end
-
-	if self.boutons[2*10 + 1].etat == 1 and pd.buttonIsPressed(pd.kButtonA) then
-        self.boutons[2*10 + 1].etat = 2
-	end
-    
+   if pd.buttonIsPressed(pd.kButtonA) then
+	self.boutons[self.boutonSelect[1]*10 + self.boutonSelect[2]].etat = 2
+   end
 end
 
 function Menu:update()
