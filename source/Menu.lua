@@ -66,7 +66,7 @@ function Menu:presserBouton()
    end
 end
 
-function Menu:update()
+function Menu:update() -- test commit
     Menu.super.update(self)
     self:selection()
     self:presserBouton()
