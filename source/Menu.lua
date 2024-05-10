@@ -23,6 +23,7 @@ function Menu:init()
 	self.boutons[2*10 + 2] = Bouton(330, 220, "images/normal", "images/select", "images/press") -- Bonton Règle
 	self.boutons[2*10 + 2].etat = 0
 	self.boutonSelect = {1, 1} -- Enregistre les indices du bouton selectionné 
+	self.estVisible = true
     self:add()
 end
 
@@ -63,13 +64,31 @@ function Menu:selection()
 end
 
 function Menu:presserBouton()
-   if pd.buttonIsPressed(pd.kButtonA) then
-	self.boutons[self.boutonSelect[1]*10 + self.boutonSelect[2]].etat = 2
-   end
+	local boutonSelect = self.boutons[self.boutonSelect[1]*10 + self.boutonSelect[2]]
+
+	if pd.buttonIsPressed(pd.kButtonA) then
+		boutonSelect.etat = 2 -- l'apparence du bouton change pour l'apparence "select"
+	end
+
+	if pd.buttonJustReleased(pd.kButtonA) then
+		-- Action du bouton Play
+		if boutonSelect == self.boutons[1*10 + 1] then 
+			self.estVisible = false
+			gfx.clear()
+
+		end
+
+	end
 end
 
 function Menu:update() 
-    Menu.super.update(self)
-    self:selection()
-    self:presserBouton()
+	if self.estVisible then
+		for k in pairs(self.boutons) do -- update chaque bouton à chaque update du menu visible
+			if self.boutons[k] ~= nil then
+				self.boutons[k]:update()
+			end
+		end	
+		self:selection()
+    	self:presserBouton()
+	end
 end

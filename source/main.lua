@@ -3,22 +3,40 @@ import "CoreLibs/graphics"
 import "CoreLibs/object"
 import "CoreLibs/sprites"
 import "CoreLibs/timer"
-import "Bouton"
 import "Menu"
--- import "images/normal"
--- import "images/press"
--- import "images/select"
+import "Plateau"
+
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
+local tmr <const> = pd.timer
 
 local function initialize()
-	local menuTest = Menu()
+	 menu = Menu()
+	 plateau = Plateau()
+	 
+end
+
+local function voirMenu()
+	local gameOver = plateau:isGameOver()
+	if gameOver then
+		menu.estVisible = true
+	end
+end
+
+local function voirPateaux(menuEstVisible) 
+	if not(menu.estVisible) then
+		print("le plateau est visible")
+	end
 end
 
 initialize()
 
+
+
 function playdate.update() -- se lance a chaque frame
-	gfx.sprite.update()
+	voirMenu() -- permet de revoir le menu une fois la partie terminer
+	voirPateaux() 
+	menu:update()	-- met à jour le menu a chaque nouvelle image
 	playdate.drawFPS(0,0)
 end
