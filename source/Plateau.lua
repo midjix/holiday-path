@@ -12,7 +12,7 @@ function Plateau:init()
     Plateau.super.init(self)
 end
 
-function Plateau:isGameOver()
+function Plateau:isGameOver() -- simule la fin du jeux
     local gameOver = false
     if pd.buttonJustPressed(pd.kButtonB) then
         gameOver = true
