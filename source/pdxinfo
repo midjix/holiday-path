@@ -1,6 +1,6 @@
 name=holiday route
 author=Lab-BBG
-description=This is template project
+description=Premier jeu de lab-BBG(le but = être le Premier a fair 1000 borne)
 bundleID=com.organization.package
 version=0.0.1
 buildNumber=1

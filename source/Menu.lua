@@ -75,8 +75,11 @@ function Menu:presserBouton()
 		if boutonSelect == self.boutons[1*10 + 1] then 
 			self.estVisible = false
 			gfx.clear()
-
+		
+		elseif boutonSelect == self.boutons[1*10 + 2] then
+			
 		end
+
 
 	end
 end
