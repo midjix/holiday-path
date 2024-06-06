@@ -18,9 +18,9 @@ function Menu:init()
 	self.boutons[1*10 + 1].etat = 0
 	self.boutons[1*10 + 2] = Bouton(266, 120, "images/EXIT neutre", "images/EXIT Select", "images/EXIT press") -- Bouton Exit
 	self.boutons[1*10 + 2].etat = 0
-	self.boutons[2*10 + 1] = Bouton(70, 220, "images/normal", "images/select", "images/press") -- Bouton Crédit
+	self.boutons[2*10 + 1] = Bouton(70, 220, "images/Lab-BBG neutre", "images/Lab-BBG Select", "images/Lab-BBG press") -- Bouton Crédit
 	self.boutons[2*10 + 1].etat = 0
-	self.boutons[2*10 + 2] = Bouton(330, 220, "images/normal", "images/select", "images/press") -- Bonton Règle
+	self.boutons[2*10 + 2] = Bouton(330, 220, "images/RULE neutre", "images/RULE Select", "images/RULE press") -- Bonton Règle
 	self.boutons[2*10 + 2].etat = 0
 	self.boutonSelect = {1, 1} -- Enregistre les indices du bouton selectionné 
 	self.estVisible = true
