@@ -28,7 +28,7 @@ function Menu:init()
 	self.boutons[2*10 + 2].etat = 0
 
 	self.boutonSelect = {1, 1} -- Enregistre les indices du bouton selectionné 
-	
+
 	self.estVisible = true
     self:add()
 end
